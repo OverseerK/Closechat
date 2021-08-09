@@ -1,0 +1,4 @@
+name: Closechat
+version: ${project.version}
+main: com.overseer.closechat.Closechat
+api-version: 1.16
