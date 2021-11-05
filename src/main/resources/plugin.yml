@@ -1,6 +1,9 @@
 name: CloseChat
 main: com.overseer.closechat.Closechat
 version: 1.0
+commands:
+  closechat:
+    description: all closechat commands
 permissions:
   closechat.bypass:
     description: Bypasses the chat limit
