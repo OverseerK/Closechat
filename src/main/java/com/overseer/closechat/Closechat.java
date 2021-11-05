@@ -18,7 +18,7 @@ public final class Closechat extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        System.out.println("[CloseChat] í™œì„±í™”ë¨.");
+        System.out.println("[CloseChat] Enabled.");
         Bukkit.getPluginManager().registerEvents(this, this);
         saveDefaultConfig();
     }
@@ -26,19 +26,19 @@ public final class Closechat extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        System.out.println("[CloseChat] ë¹„í™œì„±í™”ë¨.");
+        System.out.println("[CloseChat] Disabled.");
     }
 
     @EventHandler
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
-        int Radius = config.getInt("ë²”ìœ„");
-        ArrayList<String> WorldNameList = (ArrayList<String>) config.getStringList("ì›”ë“œ ì´ë¦„");
+        int Radius = config.getInt("¹üÀ§");
+        ArrayList<String> WorldNameList = (ArrayList<String>) config.getStringList("¿ùµå ÀÌ¸§");
         if (WorldNameList.size() > 0) {
             for (String WorldName : WorldNameList) {
                 World w = Bukkit.getWorld(WorldName);
                 if (w == null) {
-                    System.err.println("[CloseChat] ì›”ë“œê°€ ìœ íš¨í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤: " + WorldName);
+                    System.err.println("[CloseChat] ¿ùµå°¡ À¯È¿ÇÏÁö ¾Ê½À´Ï´Ù: " + WorldName);
                 } else if (w == e.getPlayer().getWorld()) {
                     for (Player Recipient : e.getRecipients()) {
                         if (Recipient.getLocation().distance(p.getLocation()) > Radius && !Recipient.hasPermission("closechat.bypass")) {
