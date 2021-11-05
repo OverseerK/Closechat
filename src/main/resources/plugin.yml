@@ -1,4 +1,7 @@
-name: Closechat
-version: ${project.version}
+name: CloseChat
 main: com.overseer.closechat.Closechat
-api-version: 1.16
+version: 1.0
+permissions:
+  closechat.bypass:
+    description: Bypasses the chat limit
+    default: op
