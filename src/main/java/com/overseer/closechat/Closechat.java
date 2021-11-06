@@ -43,17 +43,20 @@ public final class Closechat extends JavaPlugin implements Listener {
                 reloadConfig();
                 sender.sendMessage("[CloseChat] Configuration file reloaded.");
             } else if (args[0].equalsIgnoreCase("worlds")) {
-                sender.sendMessage("적용된 월드 목록:");
                 ArrayList<String> WorldNameList = (ArrayList<String>) config.getStringList("월드 이름");
                 if (WorldNameList.size() > 0) {
+                    sender.sendMessage("[CloseChat] Enabled worlds:");
                     for (String WorldName : WorldNameList) {
                         World w = Bukkit.getWorld(WorldName);
                         if (w == null) {
-                            System.err.println("[CloseChat] 월드가 유효하지 않습니다: " + WorldName);
+                            System.err.println("[CloseChat] World is not valid: " + WorldName);
                         } else {
                             sender.sendMessage("- " + WorldName);
                         }
                     }
+                } else {
+                    sender.sendMessage("[CloseChat] No enabled worlds.");
+
                 }
             } else {
                 sender.sendMessage("[CloseChat] Closechat commands: /closechat reload, /closechat worlds");
